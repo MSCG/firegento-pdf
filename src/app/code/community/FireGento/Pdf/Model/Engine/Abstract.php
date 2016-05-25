@@ -1178,7 +1178,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         if ($this->getRegularFont() && $this->regularFontFileExists()) {
             return Zend_Pdf_Font::fontWithPath($this->getRegularFontFile());
         }
-        return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
+
+        $defaultPath = Mage::helper('firegento_pdf')->getDefaultFontPath() . 'ubuntu-regular.ttf';
+        return Zend_Pdf_Font::fontWithPath($defaultPath);
     }
 
     /**
@@ -1206,7 +1208,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         if ($this->getBoldFont() && $this->boldFontFileExists()) {
             return Zend_Pdf_Font::fontWithPath($this->getBoldFontFile());
         }
-        return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_BOLD);
+
+        $defaultPath = Mage::helper('firegento_pdf')->getDefaultFontPath() . 'ubuntu-bold.ttf';
+        return Zend_Pdf_Font::fontWithPath($defaultPath);
     }
 
     /**
@@ -1234,9 +1238,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         if ($this->getItalicFont() && $this->italicFontFileExists()) {
             return Zend_Pdf_Font::fontWithPath($this->getItalicFontFile());
         }
-        return Zend_Pdf_Font::fontWithName(
-            Zend_Pdf_Font::FONT_HELVETICA_ITALIC
-        );
+
+        $defaultPath = Mage::helper('firegento_pdf')->getDefaultFontPath() . 'ubuntu-italic.ttf';
+        return Zend_Pdf_Font::fontWithPath($defaultPath);
     }
 
     /**
